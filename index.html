@@ -10,31 +10,159 @@
             --bg: #0b141a;
             --surface: #111b21;
             --text: #e9edef;
-            --accent: #00a884;
+            --secondary: #8696a0;
         }
 
         body {
             background-color: var(--bg);
             color: var(--text);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Roboto, sans-serif;
             margin: 0;
+            padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-height: 100vh;
         }
 
-        /* Espacio para Publicidad */
-        .ad-space {
+        /* Header con tu marca */
+        .app-header {
             width: 100%;
+            background: var(--surface);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid var(--primary);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .logo-as {
+            width: 60px;
             height: 60px;
-            background: #202c33;
+            background: var(--primary);
+            border-radius: 15px;
+            margin: 0 auto 10px;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-weight: bold;
+            font-size: 24px;
+            color: var(--bg);
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Galería de Stickers */
+        .main-content {
+            width: 90%;
+            max-width: 450px;
+            padding: 20px 0;
+        }
+
+        .sticker-card {
+            background: var(--surface);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid #202c33;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .sticker-box {
+            background: rgba(255,255,255,0.03);
+            aspect-ratio: 1/1;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+            border: 1px solid #202c33;
+            overflow: hidden;
+        }
+
+        .sticker-box img {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        /* Botón de Instalación Directa */
+        .btn-install {
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 18px;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+            transition: transform 0.2s;
+            margin-top: 10px;
+        }
+
+        .btn-install:active {
+            transform: scale(0.96);
+        }
+
+        .footer {
+            margin-top: 40px;
             font-size: 12px;
-            color: #8696a0;
-            margin-bottom: 20px;
+            color: var(--secondary);
+            text-align: center;
+            padding-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-header">
+        <div class="logo-as">AS</div>
+        <h1 style="margin:0; font-size: 22px;">AppsStudios Official</h1>
+        <span style="color: var(--primary); font-size: 12px; font-weight: bold;">STORE VERIFICADA</span>
+    </div>
+
+    <div class="main-content">
+        <div class="sticker-card">
+            <h3 style="margin-top:0;">Pack: Stickers Pro V1</h3>
+            <div class="grid">
+                <!-- Se cargan tus stickers reales desde tu repositorio -->
+                <div class="sticker-box">
+                    <img src="stick1.webp" onerror="this.src='https://raw.githubusercontent.com/WhatsApp/stickers/master/Android/app/src/main/assets/1/01_Cuppy_smile.webp'">
+                </div>
+                <div class="sticker-box">
+                    <img src="stick2.webp" onerror="this.src='https://raw.githubusercontent.com/WhatsApp/stickers/master/Android/app/src/main/assets/1/02_Cuppy_lol.webp'">
+                </div>
+                <!-- Placeholder mientras subes el tercero -->
+                <div class="sticker-box">
+                    <img src="https://raw.githubusercontent.com/WhatsApp/stickers/master/Android/app/src/main/assets/1/03_Cuppy_rofl.webp" style="opacity: 0.3;">
+                </div>
+            </div>
+
+            <!-- 
+                INTENT DIRECTO: 
+                Este link intenta abrir el instalador de WhatsApp.
+                Asegúrate de que 'packs1' sea el ID correcto.
+            -->
+            <a href="intent://sticker_pack/packs1/#Intent;scheme=whatsapp;package=com.whatsapp;S.browser_fallback_url=https://appsstudios.github.io;end" class="btn-install">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.522-2.961-2.638-.086-.117-.718-.952-.718-1.813 0-.861.448-1.284.607-1.454.159-.171.346-.213.462-.213.117 0 .231.003.332.008.106.004.249-.04.391.297.144.35.494 1.206.537 1.291.043.085.072.184.014.303-.058.118-.087.197-.173.296l-.261.303c-.086.095-.177.199-.077.371.1.172.443.731.95 1.18.653.58 1.202.76 1.373.846.171.086.273.072.373-.045.1-.117.426-.499.541-.67.114-.171.23-.142.388-.085.158.057 1 .471 1.172.556.171.085.285.128.327.201.042.073.042.423-.102.828z"/></svg>
+                INSTALAR AHORA
+            </a>
+        </div>
+    </div>
+
+    <div class="footer">
+        Desarrollado por <b>AppsStudios</b> &copy; 2026<br>
+        Contenido 100% verificado y seguro.
+    </div>
+
+</body>
+</html>            margin-bottom: 20px;
         }
 
         .container {
@@ -151,4 +279,5 @@
     </div>
 
 </body>
+
 </html>
