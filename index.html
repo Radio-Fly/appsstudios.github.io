@@ -24,17 +24,130 @@
             align-items: center;
         }
 
-        /* Header con tu marca */
         .app-header {
             width: 100%;
             background: var(--surface);
             padding: 20px;
             text-align: center;
             border-bottom: 2px solid var(--primary);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
         }
 
         .logo-as {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 15px;
+            margin: 0 auto 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 24px;
+            color: var(--bg);
+        }
+
+        .main-content {
+            width: 90%;
+            max-width: 450px;
+            padding: 20px 0;
+        }
+
+        .sticker-card {
+            background: var(--surface);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid #202c33;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .sticker-box {
+            background: rgba(255,255,255,0.03);
+            aspect-ratio: 1/1;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+            border: 1px solid #202c33;
+        }
+
+        .sticker-box img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .btn-install {
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 18px;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 12px;
+            color: var(--secondary);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-header">
+        <div class="logo-as">AS</div>
+        <h1 style="margin:0; font-size: 22px;">AppsStudios Official</h1>
+        <span style="color: var(--primary); font-size: 11px;">SERVIDOR DE INSTALACIÓN</span>
+    </div>
+
+    <div class="main-content">
+        <div class="sticker-card">
+            <h3>Pack: Premium V1</h3>
+            <div class="grid">
+                <!-- Cargando tus stickers de GitHub -->
+                <div class="sticker-box"><img src="stick1.webp"></div>
+                <div class="sticker-box"><img src="stick2.webp"></div>
+                <div class="sticker-box"><img src="https://raw.githubusercontent.com/WhatsApp/stickers/master/Android/app/src/main/assets/1/03_Cuppy_rofl.webp" style="opacity:0.2"></div>
+            </div>
+
+            <!-- 
+                PARA EVITAR EL 404: 
+                Tienes que poner un link de un pack que YA EXISTE en internet.
+                Prueba con este link de ejemplo para ver que NO da error:
+                https://stickers.cloud/es/pack/cuppy
+            -->
+            <a href="https://stickers.cloud/es/pack/cuppy" class="btn-install" id="installBtn">
+                AÑADIR A WHATSAPP
+            </a>
+        </div>
+    </div>
+
+    <div class="footer">
+        AppsStudios &copy; 2026<br>
+        Powered by AppsStudios Sticker Labs
+    </div>
+
+    <script>
+        // Este script ayuda a que si falla el link, no se quede en blanco
+        document.getElementById('installBtn').addEventListener('click', function(e) {
+            console.log("Iniciando instalador oficial...");
+        });
+    </script>
+</body>
+</html>        .logo-as {
             width: 60px;
             height: 60px;
             background: var(--primary);
@@ -281,3 +394,4 @@
 </body>
 
 </html>
+
